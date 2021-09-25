@@ -1,4 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+h1 {
+  margin: 0px;
+  padding: 0px;
+}
+
 .App {
+  background-image: url("./assets/bg.jpg");
+  width: 100%;
+  height: 100vh;
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
   text-align: center;
 }
 
+.title {
+  /* margin-top: 10px; */
+}
+
+.userList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.card {
+  width: 469px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+  background-color: #ffdde1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  height: 150px;
+}
+
+.infoSec {
+  margin-left: 37px;
+  text-align: left;
+}
+.infoSec p {
+  margin: 0px;
+  padding: 3px 5px;
+}
+.infoSec span {
+  font-weight: 700;
+  color: skyblue;
+}
+
+.imageSec img {
+  border-radius: 70px;
+  border: 4px solid pink;
+}
+
+.pagination {
+  margin-top: 45px;
+  margin-left: -40px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  outline: none;
+}
+
+.pagination > .active > a {
+  background-color: #47ccde;
+  color: #fff;
+}
+
+.pagination > li > a {
+  border: 1px solid #47ccde;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  color: #47ccde;
+  background-color: azure;
+}
