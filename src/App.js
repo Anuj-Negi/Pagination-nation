@@ -2,10 +2,11 @@ import react, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import './App.css';
 import axios from 'axios';
-function App() {
+
+const App = () => {
 
   const [userInfo, setUserInfo] = useState([])
-  const [toggle, setToggle] = useState(1)
+  const [toggle, setToggle] = useState(0)
 
 
   const fetchInfo = () => {
@@ -21,7 +22,7 @@ function App() {
   const handlePageClick = (data) => {
     const { selected } = data
     console.log(selected);
-    setToggle(selected);
+    setToggle(selected+1);
   }
 
   useEffect(() => {
@@ -32,16 +33,16 @@ function App() {
     <div className="App">
       <h1 className="title">Pagination Nation</h1>
       <div className="userList">
-        {userInfo.length>0 ?
+        {userInfo.length > 0 ?
           userInfo.map((info) => (
             <div className="card" key={info.id}>
               <div className="imageSec">
                 <img src={info.avatar} />
               </div>
               <div className="infoSec">
-                <p><span>First Name : &nbsp;&nbsp;</span> {info.first_name}</p>
-                <p><span>Last Name : &nbsp;&nbsp;</span>{info.last_name}</p>
-                <p><span>Email : &nbsp;&nbsp;&nbsp;&nbsp;</span>{info.email}</p>
+                <p><span>First Name : &nbsp;</span> {info.first_name}</p>
+                <p><span>Last Name : &nbsp;</span>{info.last_name}</p>
+                <p><span>Email : </span>{info.email}</p>
               </div>
             </div>
           ))
@@ -51,11 +52,13 @@ function App() {
       </div>
 
       <ReactPaginate
-        previousLabel={"previous"}
+        previousLabel={"prev"}
         nextLabel={"next"}
         breakLabel={"..."}
         breakClassName={"break-me"}
-        // pageCount={pageCount}
+        pageCount={4}
+        // disableInitialCallback={true}
+        // initialPage={1}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
         subContainerClassName={"pages pagination"}
